@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="styling.css">
+    <link rel="stylesheet" href="navbutfooterstyle.css">
+    <script src="loglist.js"></script>
+</head>
+
+<body>
+
+   
+<div class="nav">
+    <div class="logo">
+        <img src="logo.png" alt="logo">
+    </div>
+
+    <a href="home.html">
+        <div class="nav-item">Home</div>
+    </a>
+
+    <div class="nav-item">
+        Courses
+        <div class="sub-menu">
+            <a href="jeepage.html" class="sub-link" target="_blank">JEE</a>
+            <a href="neetpage.html" class="sub-link" target="_blank">NEET</a>
+        </div>
+    </div>
+
+    <div class="nav-item">
+        Study Material
+        <div class="sub-menu">
+            <a href="https://ncert.nic.in/textbook.php" target="_blank" class="sub-link">NCERT Books</a>
+            <a href="https://www.vedantu.com/ncert-solutions" target="_blank" class="sub-link">NCERT Solutions</a>
+            <a href="https://www.vedantu.com/hc-verma-solutions" target="_blank" class="sub-link">HC VERMA Solutions</a>
+            <a href="https://www.vedantu.com/rd-sharma-solutions" target="_blank" class="sub-link">RD SHARMA Solutions</a>
+            <a href="https://www.vedantu.com/textbook-solutions/ncert-exemplar-problems-solutions" target="_blank" class="sub-link">NCERT EXEMPLER Solutions</a>
+        </div>
+    </div>
+    <a href="https://jee-neet-solver.in/" target="_blank"><div class="nav-item">
+        AI Doubt Solver
+        </div></a>
+    <button onclick="openModal()" id="logbutton">Login</button>
+
+    <div id="user-menu">
+        <button id="user-name" onclick="toggleLogout()"></button>
+        <button id="logout-button" onclick="logout()">Logout</button>
+    </div>
+</div>
+
+
+
+<div id="login-modal">
+    <div class="modal-content">
+        <h2 style="color: black;">🔐 Login</h2>
+
+        <input type="text" id="student-name" placeholder="Enter your name"
+               style="padding: 8px; width: 80%; margin-bottom: 10px; border-radius: 5px; border: 1px solid #ccc;" />
+        
+        <br/>
+
+        <label for="student-class" style="color: black; font-weight: bold;">Select your class:</label><br/>
+        <select id="student-class" style="padding: 8px; width: 80%; margin-bottom: 10px; border-radius: 5px;">
+            <option value="Class 11">Class 11</option>
+            <option value="Class 12">Class 12</option>
+        </select>
+        
+        <br/>
+
+        <label for="student-course" style="color: black; font-weight: bold;">Select your course:</label><br/>
+        <select id="student-course" style="padding: 8px; width: 80%; margin-bottom: 15px; border-radius: 5px;">
+            <option value="JEE">JEE Mains and Advanced</option>
+            <option value="Neet">NEET</option>
+        </select>
+
+        <br/>
+
+        <button onclick="login()" style="padding: 8px 20px; margin-top: 10px; border: none; background-color: #38BDF8; color: white; border-radius: 5px; cursor: pointer;">Login</button>
+        <button onclick="closeLoginModal()" id="close" style="background-color: red; color: white; border: none; border-radius: 50%; width: 30px; height: 30px; float: right; margin-top: -40px; margin-right: -10px; cursor: pointer;">X</button>
+    </div>
+</div>
+
+
+
+
+
+
+
+<div class="nav2">
+    <div class="nav2-item">
+        SYLLABUS
+        <div class="sub-menu">
+            <a href="CLASS11syllabus.html" target="_blank" class="sub-link">Class 11</a>
+            <a href="CLASS12syllabus.html" target="_blank" class="sub-link">Class 12</a>
+        </div>
+    </div>
+    <div class="nav2-item">
+        JEE PHYSICS
+        <div class="sub-menu">
+            <a href="class11jee.html#11phy" target="_blank" class="sub-link">Class 11</a>
+            <a href="class12jee.html#12phy" target="_blank" class="sub-link">Class 12</a>
+        </div>
+    </div>
+    <div class="nav2-item">
+        JEE CHEMISTRY
+        <div class="sub-menu">
+            <a href="class11jee.html#11chem" target="_blank" class="sub-link">Class 11</a>
+            <a href="class12jee.html#12chem" target="_blank" class="sub-link">Class 12</a>
+        </div>
+    </div>
+    <div class="nav2-item">
+        JEE MATHS
+        <div class="sub-menu">
+            <a href="class11jee.html#11math" target="_blank" class="sub-link">Class 11</a>
+            <a href="class12jee.html#12math" target="_blank" class="sub-link">Class 12</a>
+        </div>
+    </div>
+    <div class="nav2-item">
+        NEET PHYSICS
+        <div class="sub-menu">
+            <a href="class11neet.html#11phy" target="_blank" class="sub-link">Class 11</a>
+            <a href="class12neet.html#12phy" target="_blank" class="sub-link">Class 12</a>
+        </div>
+    </div>
+    <div class="nav2-item">
+        NEET CHEMISTRY
+        <div class="sub-menu">
+            <a href="class11neet.html#11chem" target="_blank" class="sub-link">Class 11</a>
+            <a href="class12neet.html#12chem" target="_blank" class="sub-link">Class 12</a>
+        </div>
+    </div>
+    <div class="nav2-item">
+        NEET BIOLOGY
+        <div class="sub-menu">
+            <a href="class11neet.html#11bio" target="_blank" class="sub-link">Class 11</a>
+            <a href="class12neet.html#12bio" target="_blank" class="sub-link">Class 12</a>
+        </div>
+    </div>
+    <div class="nav2-item">
+        <a href="tests.html" target="_blank" class="sub-link">TESTS</a>
+    </div>
+</div>
+
+
+
+<section id="intro"></section>
+    
+<div id="dashboard-section" style="display: block;">
+    <h2>Hello, <span id="username">Student</span>!</h2>
+    <p id="greeting">Welcome! Please log in to see your dashboard.</p><br/>
+    <p>Your Course: <span id="course-name">—</span></p>
+    <p>Your Class: <span id="class-name">—</span></p>
+    
+    <div id="todo-section">
+        <h1>Your Tasks:</h1>
+        <ul id="todo-list"></ul>
+        <input type="text" id="task-input" placeholder="Add a new task">
+        <button onclick="addTask()">Add Task</button>
+    </div>
+</div>
+
+    <div class="JEE">
+        <div class="jeecourse"></div>
+        <div class="content">
+            <h1>JEE MAINS and ADVANCED</h1>
+            <h3>"Your Gateway to Engineering and IIT Excellence."</h3>
+            <a href="CLASS11syllabus.html#class11-jee" target="_blank"><button id="syllj">Syllabus</button></a>
+           
+            
+            <a href="jeepage.html" target="_blank"><button id="Explorej">Explore Course</button></a>
+        </div>
+    </div>
+
+    <div class="NEET">
+        <div class="neetcourse"></div>
+        <div class="content">
+            <h1>NEET<br>National Eligibility cum Entrance Test</h1>
+            <h3>"Your Pathway to Medical Excellence."</h3>
+          
+            <a href="CLASS11syllabus.html#class11-NEET" target="_blank"><button id="sylln">Syllabus</button></a>
+            
+            <a href="neetpage.html" target="_blank"><button id="Exploren">Explore Course</button></a>
+        </div>
+    </div>
+
+    <div class="TESTSECT">
+        <div class="testsection"></div>
+        <div class="content">
+            <h1>TESTS<br>Mocks and Previous Years </h1>
+            <a href="tests.html#jee"><button id="JEEtest">JEE</button></a>
+            <a href="tests.html#neet"><button id="NEETtest">NEET</button></a>
+            <a href="tests.html"><button id="Exploretest">Explore</button></a>
+        </div>
+    </div>
+
+
+
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Exams & Courses</h3>
+                <ul>
+                    <li><a href="https://jeemain.nta.nic.in/" target="_blank">JEE Main & Advanced</a></li>
+                    <li><a href="https://neet.nta.nic.in/" target="_blank">NEET</a></li>
+                    <li><a href="https://cuet.samarth.ac.in/" target="_blank">CUET</a></li>
+                    <li><a href="https://www.cbse.gov.in/" target="_blank">CBSE</a></li>
+                    <li><a href="https://www.cisce.org/" target="_blank">CISCE</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Useful Links</h3>
+                <ul>
+                    <li><a href="https://josaa.nic.in/" target="_blank">JOSAA</a></li>
+                    <li><a href="https://csab.nic.in/" target="_blank">CSAB</a></li>
+                    <li><a href="https://www.digilocker.gov.in/" target="_blank">DigiLocker</a></li>
+                    <li><a href="https://nptel.ac.in/" target="_blank">NPTEL</a></li>
+                    <li><a href="https://www.mygov.in/" target="_blank">MyGov India</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Books & Resources</h3>
+                <ul>
+                    <li><a href="https://ncert.nic.in/textbook.php" target="_blank">NCERT Books</a></li>
+                    <li><a href="https://www.vedantu.com/ncert-solutions?itm_source=Homepage&itm_medium=Footer&itm_campaign=Homepage_VarB4&itm_content=Study_Materials" target="_blank">NCERT Solutions</a></li>
+                    <li><a href="https://www.vedantu.com/hc-verma-solutions?itm_source=Homepage&itm_medium=Footer&itm_campaign=Homepage_VarB4&itm_content=Study_Materials" target="_blank">HC VERMA Solutions</a></li>
+                    <li><a href="https://www.vedantu.com/rd-sharma-solutions?itm_source=Homepage&itm_medium=Footer&itm_campaign=Homepage_VarB4&itm_content=Study_Materials" target="_blank">RD SHARMA Solutions</a></li>
+                    <li><a href="https://www.vedantu.com/textbook-solutions/ncert-exemplar-problems-solutions?itm_source=Homepage&itm_medium=Footer&itm_campaign=Homepage_VarB4&itm_content=Study_Materials" target="_blank">NCERT EXEMPLER Solutions</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Mind Horizon. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

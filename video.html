@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chapter Video</title>
+
+    <link rel="stylesheet" href="video.css">
+  
+</head>
+<body>
+  <div class="title" id="chapterTitle">Chapter Video</div>
+  <div class="video-container">
+    <iframe id="videoFrame" src="" allowfullscreen></iframe>
+  </div>
+  <button class="back-button" onclick="goBack()">← Back to Chapter List</button>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const videoUrl = params.get('video');
+    const chapterTitle = params.get('title');
+
+    if (videoUrl) {
+      document.getElementById('videoFrame').src = videoUrl;
+    }
+    if (chapterTitle) {
+      document.getElementById('chapterTitle').textContent = chapterTitle;
+    }
+    function goBack() {
+      window.history.back();
+    }
+  </script>
+</body>
+</html>
