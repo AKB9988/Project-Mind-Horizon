@@ -186,7 +186,6 @@ button:active {
     cursor: pointer;
 }
 
-/* User menu dropdown */
 #user-menu {
     display: none;
     position: relative;
