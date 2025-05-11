@@ -20,6 +20,7 @@
 
 .allthree {
     flex-direction: row;
+    gap: 20px;
 }
 
 .neetphycont, .neetchemcont, .neetbiocont {
