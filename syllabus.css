@@ -6,7 +6,9 @@ body {
     background-color: #0F172A;
     color: #F8FAFC;
 }
-
+h1{
+    text-align:center;
+}
 .unit {
     width: 80%;
     margin: 20px auto;
