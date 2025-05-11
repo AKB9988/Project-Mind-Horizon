@@ -6,20 +6,14 @@ html, body {
     color: #F8FAFC;
 }
 
-#intro {
-    background-image: url("BG.png");
-    background-position: center;
-    background-size: contain;
-    position: relative;
-    top: 120px;
-    width: 100%; 
-    height: 30vh; 
-}
+
 
 
 #dashboard-section {
     padding: 20px;
-    background-image: linear-gradient( 111.4deg,  rgba(7,7,9,1) 6.5%, rgba(27,24,113,1) 93.2% );
+    background-image: url("bg.jpg");
+    background-position: center;
+    background-size: cover;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     width: 95%;
@@ -28,7 +22,15 @@ html, body {
     position:relative ;
     top: 130px;
     font-size: 2rem;
+    color:white;
+       text-shadow: 
+    0 0 3px black,
+    0 0 5px black,
+    0 0 7px black,
+    0 0 10px black;
+  
 }
+
 #course-info ul {
     list-style-type: none;
     padding: 0;
