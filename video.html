@@ -3,17 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Chapter Video</title>
+  <title>Chapter Video with Sticky Notes</title>
+  <link rel="stylesheet" href="video.css">
 
-    <link rel="stylesheet" href="video.css">
-  
 </head>
 <body>
-  <div class="title" id="chapterTitle">Chapter Video</div>
-  <div class="video-container">
-    <iframe id="videoFrame" src="" allowfullscreen></iframe>
+  <div class="left-panel">
+    <div class="title" id="chapterTitle">Chapter Video</div>
+    <div class="video-container">
+      <iframe id="videoFrame" src="" allowfullscreen></iframe>
+    </div>
+    <button class="back-button" onclick="goBack()">← Back to Chapter List</button>
   </div>
-  <button class="back-button" onclick="goBack()">← Back to Chapter List</button>
+
+ 
+  <div class="right-panel">
+    <h3>Sticky Notes</h3>
+    <div id="notesCanvas" title="Click to add a note" ></div>
+    <button class="export-button" onclick="exportStickyNotes()">Save Notes</button>
+  </div>
+
+
+
+
 
   <script>
     const params = new URLSearchParams(window.location.search);
@@ -26,8 +38,104 @@
     if (chapterTitle) {
       document.getElementById('chapterTitle').textContent = chapterTitle;
     }
+
     function goBack() {
       window.history.back();
+    }
+
+    const canvas = document.getElementById('notesCanvas');
+
+   canvas.addEventListener('click', function (e) {
+  if (e.target !== canvas) return;
+
+  const note = document.createElement('div');
+  note.className = 'sticky-note';
+  note.style.left = `${e.offsetX}px`;
+  note.style.top = `${e.offsetY}px`;
+
+  
+  const deleteBtn = document.createElement('button');
+  deleteBtn.className = 'delete-btn';
+  deleteBtn.innerHTML = '✖';
+  deleteBtn.onclick = function (event) {
+    event.stopPropagation();
+    note.remove();
+  };
+
+
+  const content = document.createElement('div');
+  content.className = 'note-content';
+  content.contentEditable = true;
+  content.setAttribute('data-placeholder', 'Write here...');
+
+
+  content.addEventListener('input', function () {
+    if (content.textContent.trim() === "") {
+      content.classList.add('empty');
+    } else {
+      content.classList.remove('empty');
+    }
+  });
+
+  content.classList.add('empty');
+
+  note.appendChild(deleteBtn);
+  note.appendChild(content);
+  canvas.appendChild(note);
+
+  makeDraggable(note);
+});
+
+
+
+
+    function makeDraggable(el) {
+      let offsetX = 0, offsetY = 0, isDragging = false;
+
+      el.addEventListener('mousedown', function(e) {
+        isDragging = true;
+        offsetX = e.clientX - el.offsetLeft;
+        offsetY = e.clientY - el.offsetTop;
+        el.style.zIndex = 1000;
+      });
+
+      document.addEventListener('mousemove', function(e) {
+        if (isDragging) {
+          el.style.left = `${e.clientX - offsetX}px`;
+          el.style.top = `${e.clientY - offsetY}px`;
+        }
+      });
+
+      document.addEventListener('mouseup', function() {
+        isDragging = false;
+        el.style.zIndex = '';
+      });
+    }
+
+    function exportStickyNotes() {
+      const notes = [];
+      const noteElements = document.querySelectorAll('.sticky-note');
+      noteElements.forEach((el) => {
+        notes.push({
+          left: el.style.left,
+          top: el.style.top,
+          content: el.innerText
+        });
+      });
+
+      const data = {
+        title: chapterTitle || "Untitled Chapter",
+        notes: notes
+      };
+
+      const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = `${data.title.replace(/\s+/g, "_")}_stickynotes.json`;
+      link.click();
+      URL.revokeObjectURL(url);
     }
   </script>
 </body>
