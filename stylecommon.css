@@ -6,7 +6,6 @@ body {
     color: #F8FAFC;
 }
 
-
 .item-container {
     width: 90%;
     background: #1E293B;
@@ -80,5 +79,45 @@ h3 {
     .chapter {
         width: 95%;
         font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    h3 {
+        font-size: 1rem;
+        width: 90%;
+    }
+
+    .item-container {
+        margin: 80px auto 20px auto;
+        padding: 15px;
+    }
+
+    .chapter {
+        padding: 15px;
+        font-size: 0.95rem;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .item-container {
+        padding: 30px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    h3 {
+        font-size: 1.3rem;
+        width: 70%;
+    }
+
+    .chapter {
+        font-size: 1.05rem;
     }
 }
