@@ -1,7 +1,7 @@
 .details, .allthree {
     top: 110px;
     position: relative;
-    height: 40vh;
+    height: auto;
     width: 90%;
     justify-content: center;
     text-align: center;
@@ -23,8 +23,8 @@
 }
 
 .neetphycont, .neetchemcont, .neetbiocont {
-    height: 30vh;
-    width: 40vh;
+    height: auto;
+    width: auto;
     margin: 30px auto;
     padding: 30px;
     background: linear-gradient(145deg, #1f1c2c, #928dab);
