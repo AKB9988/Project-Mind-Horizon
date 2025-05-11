@@ -124,16 +124,6 @@ button:active {
     display: block;
 }
 
-.searching {
-    display: flex;
-    flex-direction: row;
-    gap: 5px;
-}
-
-.searchicon {
-    font-size: 30px;
-    color: #38BDF8;
-}
 #logbutton {
     height: 40px;
     width: auto;
@@ -351,3 +341,103 @@ footer {
     font-size: 0.9rem;
     color: #94A3B8;
 }
+
+@media screen and (max-width: 768px) {
+    .nav {
+        justify-content: space-between;
+        height: auto;
+        padding: 0 10px;
+    }
+
+    .nav-item {
+        padding: 6px 10px;
+        font-size: 14px;
+        margin: 0 5px;
+    }
+
+    .logo {
+        height: 35px;
+        width: auto;
+    }
+
+    .nav2 {
+        justify-content: space-between;
+        padding: 0 8px;
+        height: 25px;
+    }
+
+    .nav2-item {
+        padding: 3px 5px;
+        font-size: 10px;
+    }
+
+    .footer-container {
+        flex-wrap: wrap;
+    }
+
+    .footer-section {
+        min-width: 100%;
+        text-align: center;
+    }
+
+    button {
+        width: auto;
+        font-size: 13px;
+    }
+
+    #login-modal .modal-content {
+        width: 90%;
+    }
+
+    #user-name {
+        font-size: 18px;
+        padding: 5px 10px;
+    }
+
+    #logbutton {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .nav-item {
+        font-size: 12px;
+    }
+
+    .nav2-item {
+        font-size: 10px;
+    }
+
+    .logo {
+        height: 25px;
+    }
+
+    #user-name {
+        font-size: 12px;
+        padding: 5px 10px;
+    }
+
+    button {
+        width: 100%;
+        font-size: 12px;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .footer-section {
+        min-width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .footer-bottom p {
+        font-size: 0.75rem;
+    }
+
+    #logbutton {
+        width: 100%;
+    }
+}
+
